@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Logo Demo - Choose Your Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+        }
+
+        .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Animation 1: Pulse */
+        .anim-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Animation 2: Rotate */
+        .anim-rotate {
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animation 3: Bounce */
+        .anim-bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Animation 4: Glow */
+        .anim-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)); }
+        }
+
+        /* Animation 5: Swing */
+        .anim-swing {
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: center top;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        /* Animation 6: Float */
+        .anim-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Animation 7: Flip */
+        .anim-flip {
+            animation: flip 3s ease-in-out infinite;
+        }
+
+        @keyframes flip {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        /* Animation 8: Zoom */
+        .anim-zoom {
+            animation: zoom 2s ease-in-out infinite;
+        }
+
+        @keyframes zoom {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Animation 9: Shake */
+        .anim-shake {
+            animation: shake 3s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Animation 10: Slide */
+        .anim-slide {
+            animation: slide 3s ease-in-out infinite;
+        }
+
+        @keyframes slide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        /* Animation 11: Heartbeat */
+        .anim-heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+
+        /* Animation 12: Spin3D */
+        .anim-spin3d {
+            animation: spin3d 4s linear infinite;
+        }
+
+        @keyframes spin3d {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            50% { transform: rotateY(180deg) rotateX(180deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Animated Logo Gallery</h1>
+    <p class="subtitle">Each logo has its own unique animation - Choose your favorite!</p>
+
+    <div class="grid">
+        <!-- 1. Q4S Modern Circle - Pulse -->
+        <div class="card">
+            <h3>Q4S - Pulsing Circle</h3>
+            <div class="logo-container">
+                <svg class="logo anim-pulse" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#grad1)"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="70" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Gentle pulse animation</p>
+        </div>
+
+        <!-- 2. Q4S Shield - Glow -->
+        <div class="card">
+            <h3>Q4S - Glowing Shield</h3>
+            <div class="logo-container">
+                <svg class="logo anim-glow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad2)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Glowing effect animation</p>
+        </div>
+
+        <!-- 3. Q4S Hexagon - Rotate -->
+        <div class="card">
+            <h3>Q4S - Rotating Hexagon</h3>
+            <div class="logo-container">
+                <svg class="logo anim-rotate" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00C9FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#92FE9D;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 60 L170 140 L100 180 L30 140 L30 60 Z" 
+                          fill="url(#grad3)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="60" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Continuous rotation</p>
+        </div>
+
+        <!-- 4. Q4S Square - Bounce -->
+        <div class="card">
+            <h3>Q4S - Bouncing Square</h3>
+            <div class="logo-container">
+                <svg class="logo anim-bounce" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="30" y="30" width="140" height="140" rx="20" 
+                          fill="none" stroke="white" stroke-width="6"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="65" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Bouncing up and down</p>
+        </div>
+
+        <!-- 5. Q4S 3D - Swing -->
+        <div class="card">
+            <h3>Q4S - Swinging 3D</h3>
+            <div class="logo-container">
+                <svg class="logo anim-swing" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF512F;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#DD2476;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="shadow">
+                            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.5"/>
+                        </filter>
+                    </defs>
+                    <rect x="30" y="30" width="140" height="140" rx="20" fill="url(#grad4)" filter="url(#shadow)"/>
+                    <text x="100" y="130" font-family="Arial, sans-serif" font-size="65" font-weight="bold" 
+                          fill="white" text-anchor="middle" filter="url(#shadow)">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Pendulum swing effect</p>
+        </div>
+
+        <!-- 6. Q4S Stacked - Float -->
+        <div class="card">
+            <h3>Q4S - Floating Stacked</h3>
+            <div class="logo-container">
+                <svg class="logo anim-float" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad5" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#grad5)"/>
+                    <text x="100" y="90" font-family="Arial, sans-serif" font-size="50" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4</text>
+                    <line x1="60" y1="100" x2="140" y2="100" stroke="white" stroke-width="3"/>
+                    <text x="100" y="135" font-family="Arial, sans-serif" font-size="50" font-weight="bold" 
+                          fill="white" text-anchor="middle">S</text>
+                </svg>
+            </div>
+            <p class="description">Smooth floating motion</p>
+        </div>
+
+        <!-- 7. Building - Flip -->
+        <div class="card">
+            <h3>Building - Flipping</h3>
+            <div class="logo-container">
+                <svg class="logo anim-flip" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#grad6)" opacity="0.2"/>
+                    <path d="M100 30 L160 90 L140 90 L140 140 C140 151 131 160 120 160 L80 160 C69 160 60 151 60 140 L60 90 L40 90 Z" 
+                          fill="url(#grad6)" stroke="white" stroke-width="3"/>
+                    <circle cx="100" cy="100" r="15" fill="white" opacity="0.9"/>
+                    <rect x="95" y="110" width="10" height="30" fill="white" opacity="0.9" rx="2"/>
+                </svg>
+            </div>
+            <p class="description">3D flip animation</p>
+        </div>
+
+        <!-- 8. Rocket - Zoom -->
+        <div class="card">
+            <h3>Rocket - Zooming</h3>
+            <div class="logo-container">
+                <svg class="logo anim-zoom" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="100" cy="180" rx="30" ry="10" fill="#FFA500" opacity="0.5"/>
+                    <path d="M100 40 Q85 60 85 100 L85 140 L75 160 L75 140 L85 140 L85 170 L100 180 L115 170 L115 140 L125 140 L125 160 L115 140 L115 100 Q115 60 100 40 Z" 
+                          fill="url(#grad7)" stroke="white" stroke-width="3"/>
+                    <circle cx="100" cy="80" r="8" fill="white" opacity="0.9"/>
+                    <path d="M70 120 Q60 130 65 140 L85 140 Z" fill="#FF6B6B"/>
+                    <path d="M130 120 Q140 130 135 140 L115 140 Z" fill="#FF6B6B"/>
+                </svg>
+            </div>
+            <p class="description">Zoom in/out effect</p>
+        </div>
+
+        <!-- 9. Gear - Shake -->
+        <div class="card">
+            <h3>Gear - Shaking</h3>
+            <div class="logo-container">
+                <svg class="logo anim-shake" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00C9FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#92FE9D;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g fill="url(#grad8)">
+                        <rect x="90" y="20" width="20" height="50" rx="4"/>
+                        <rect x="90" y="130" width="20" height="50" rx="4"/>
+                        <rect x="20" y="90" width="50" height="20" rx="4"/>
+                        <rect x="130" y="90" width="50" height="20" rx="4"/>
+                        <rect x="40" y="40" width="20" height="50" rx="4" transform="rotate(45 100 100)"/>
+                        <rect x="140" y="40" width="20" height="50" rx="4" transform="rotate(-45 100 100)"/>
+                        <rect x="40" y="110" width="20" height="50" rx="4" transform="rotate(-45 100 100)"/>
+                        <rect x="140" y="110" width="20" height="50" rx="4" transform="rotate(45 100 100)"/>
+                    </g>
+                    <circle cx="100" cy="100" r="40" fill="url(#grad8)" stroke="white" stroke-width="4"/>
+                    <circle cx="100" cy="100" r="20" fill="white"/>
+                </svg>
+            </div>
+            <p class="description">Vibration shake effect</p>
+        </div>
+
+        <!-- 10. Abstract - Slide -->
+        <div class="card">
+            <h3>Abstract - Sliding</h3>
+            <div class="logo-container">
+                <svg class="logo anim-slide" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF512F;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#DD2476;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="40" fill="url(#grad9)" opacity="0.8"/>
+                    <circle cx="120" cy="80" r="40" fill="#FFD700" opacity="0.8"/>
+                    <circle cx="100" cy="120" r="40" fill="#00C9FF" opacity="0.8"/>
+                </svg>
+            </div>
+            <p class="description">Horizontal slide motion</p>
+        </div>
+
+        <!-- 11. Q4S Badge - Heartbeat -->
+        <div class="card">
+            <h3>Q4S - Heartbeat Badge</h3>
+            <div class="logo-container">
+                <svg class="logo anim-heartbeat" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad10" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="80" fill="url(#grad10)"/>
+                    <circle cx="100" cy="100" r="70" fill="white"/>
+                    <circle cx="100" cy="100" r="60" fill="url(#grad10)"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="55" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Double-beat pulse animation</p>
+        </div>
+
+        <!-- 12. Q4S Diamond - Spin 3D -->
+        <div class="card">
+            <h3>Q4S - 3D Spinning Diamond</h3>
+            <div class="logo-container">
+                <svg class="logo anim-spin3d" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad11" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="100" y="100" width="120" height="120" 
+                          transform="translate(-60 -60) rotate(45 100 100)" 
+                          fill="url(#grad11)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="Arial, sans-serif" font-size="55" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">3D spin animation</p>
+        </div>
+    </div>
+</body>
+</html>
