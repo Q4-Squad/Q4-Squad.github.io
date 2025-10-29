@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Under Construction</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700'/%3E%3Cstop offset='100%25' style='stop-color:%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z' fill='url(%23g)' stroke='white' stroke-width='4'/%3E%3Ctext x='100' y='125' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EQ4S%3C/text%3E%3C/svg%3E">
     <style>
         * {
             margin: 0;
@@ -35,16 +34,6 @@
             animation: glow 2s ease-in-out infinite;
         }
 
-        @keyframes glow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); 
-            }
-            50% { 
-                filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1)) 
-                        drop-shadow(0 0 35px rgba(255, 165, 0, 0.8)); 
-            }
-        }
-
         h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -57,72 +46,12 @@
             opacity: 0.9;
             animation: fadeIn 1s ease-in 0.6s both;
         }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 2rem;
-            animation: fadeIn 1s ease-in 0.9s both;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            width: 0;
-            border-radius: 10px;
-            animation: loading 3s ease-in-out infinite;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes loading {
-            0% {
-                width: 0%;
-            }
-            50% {
-                width: 70%;
-            }
-            100% {
-                width: 0%;
-            }
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .logo {
-                width: 120px;
-                height: 120px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Q4S Glowing Shield Logo with Serif Classic Font -->
         <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
-                </linearGradient>
-            </defs>
             <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
                   fill="url(#logoGradient)" stroke="white" stroke-width="4"/>
             <text x="100" y="125" font-family="Georgia, serif" font-size="58" font-weight="bold" 
@@ -132,9 +61,6 @@
         <h1>Under Construction</h1>
         <p>We're working hard to bring you something amazing. :)</p>
 
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
     </div>
 </body>
 </html>

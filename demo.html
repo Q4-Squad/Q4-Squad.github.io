@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo - Choose Your Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .animation-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+        }
+
+        /* Rotating Gear */
+        .gear {
+            width: 100%;
+            height: 100%;
+            animation: rotate 4s linear infinite;
+        }
+
+        /* Blinking Lightbulb */
+        .lightbulb {
+            width: 100%;
+            height: 100%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        /* Bouncing Cone */
+        .cone-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .cone {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 60px solid #ff9800;
+            position: relative;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .cone::before {
+            content: '';
+            position: absolute;
+            top: 53px;
+            left: -30px;
+            width: 60px;
+            height: 15px;
+            background: #ff5722;
+            border-radius: 50%;
+        }
+
+        .cone::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 60px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* Warning Sign */
+        .warning {
+            width: 100%;
+            height: 100%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Spinning Wrench */
+        .wrench {
+            width: 100%;
+            height: 100%;
+            animation: spin 3s ease-in-out infinite;
+        }
+
+        /* Loading Dots */
+        .dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: wave 1.4s ease-in-out infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        /* Hammer */
+        .hammer {
+            width: 100%;
+            height: 100%;
+            animation: hammer 1.5s ease-in-out infinite;
+            transform-origin: 70% 70%;
+        }
+
+        /* Progress Circle */
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-circle {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            animation: progress 3s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 20px #FFD700); }
+            50% { opacity: 0.3; filter: drop-shadow(0 0 0px #FFD700); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes spin {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(15deg); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes hammer {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(-25deg); }
+            40% { transform: rotate(0deg); }
+        }
+
+        @keyframes progress {
+            0% { stroke-dashoffset: 251.2; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 251.2; }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose Your Animation Style</h1>
+    <p class="subtitle">Click to see which animation you like best!</p>
+
+    <div class="grid">
+        <!-- 1. Rotating Gear -->
+        <div class="card">
+            <h3>⚙️ Rotating Gear</h3>
+            <div class="animation-container">
+                <svg class="gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#FFA500">
+                        <rect x="45" y="5" width="10" height="25" rx="2"/>
+                        <rect x="45" y="70" width="10" height="25" rx="2"/>
+                        <rect x="5" y="45" width="25" height="10" rx="2"/>
+                        <rect x="70" y="45" width="25" height="10" rx="2"/>
+                        <rect x="15" y="15" width="10" height="25" rx="2" transform="rotate(45 50 50)"/>
+                        <rect x="75" y="15" width="10" height="25" rx="2" transform="rotate(-45 50 50)"/>
+                        <rect x="15" y="60" width="10" height="25" rx="2" transform="rotate(-45 50 50)"/>
+                        <rect x="75" y="60" width="10" height="25" rx="2" transform="rotate(45 50 50)"/>
+                    </g>
+                    <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+                    <circle cx="50" cy="50" r="8" fill="#FF8C00"/>
+                </svg>
+            </div>
+            <p>Smooth continuous rotation</p>
+        </div>
+
+        <!-- 2. Blinking Lightbulb -->
+        <div class="card">
+            <h3>💡 Blinking Lightbulb</h3>
+            <div class="animation-container">
+                <svg class="lightbulb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Rays -->
+                    <line x1="50" y1="5" x2="50" y2="15" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="20" y1="15" x2="26" y2="21" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="10" y1="40" x2="20" y2="40" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="80" y1="15" x2="74" y2="21" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="90" y1="40" x2="80" y2="40" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Bulb -->
+                    <circle cx="50" cy="45" r="20" fill="#FFD700"/>
+                    <path d="M 38 60 Q 38 70 42 70 L 58 70 Q 62 70 62 60" fill="#E0E0E0"/>
+                    <rect x="42" y="70" width="16" height="8" rx="2" fill="#999"/>
+                </svg>
+            </div>
+            <p>Fade in/out with glow effect</p>
+        </div>
+
+        <!-- 3. Bouncing Cone -->
+        <div class="card">
+            <h3>🚧 Bouncing Cone</h3>
+            <div class="animation-container">
+                <div class="cone-wrapper">
+                    <div class="cone"></div>
+                </div>
+            </div>
+            <p>Playful bounce animation</p>
+        </div>
+
+        <!-- 4. Warning Sign -->
+        <div class="card">
+            <h3>⚠️ Warning Sign</h3>
+            <div class="animation-container">
+                <svg class="warning" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 50 10 L 90 85 L 10 85 Z" fill="#FFD700" stroke="#FF8C00" stroke-width="3"/>
+                    <circle cx="50" cy="70" r="3" fill="#FF8C00"/>
+                    <rect x="47" y="35" width="6" height="25" rx="3" fill="#FF8C00"/>
+                </svg>
+            </div>
+            <p>Pulsing scale effect</p>
+        </div>
+
+        <!-- 5. Spinning Wrench -->
+        <div class="card">
+            <h3>🔧 Spinning Wrench</h3>
+            <div class="animation-container">
+                <svg class="wrench" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 25 75 L 35 65 L 45 75 L 35 85 Z" fill="#C0C0C0"/>
+                    <rect x="32" y="30" width="6" height="45" rx="2" fill="#999" transform="rotate(-45 35 52)"/>
+                    <circle cx="65" cy="35" r="15" fill="none" stroke="#999" stroke-width="6"/>
+                    <rect x="74" y="20" width="8" height="12" rx="2" fill="#999"/>
+                </svg>
+            </div>
+            <p>Gentle wiggle motion</p>
+        </div>
+
+        <!-- 6. Loading Dots -->
+        <div class="card">
+            <h3>⚫ Loading Dots</h3>
+            <div class="animation-container">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <p>Wave pattern animation</p>
+        </div>
+
+        <!-- 7. Hammer -->
+        <div class="card">
+            <h3>🔨 Hammer</h3>
+            <div class="animation-container">
+                <svg class="hammer" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="35" y="65" width="8" height="30" rx="2" fill="#8B4513"/>
+                    <rect x="28" y="55" width="22" height="15" rx="2" fill="#696969"/>
+                    <path d="M 28 55 L 32 48 L 46 48 L 50 55" fill="#888"/>
+                </svg>
+            </div>
+            <p>Hammering motion</p>
+        </div>
+
+        <!-- 8. Progress Circle -->
+        <div class="card">
+            <h3>⭕ Progress Circle</h3>
+            <div class="animation-container">
+                <svg class="progress-circle" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
+                    <circle class="progress-ring-circle" cx="50" cy="50" r="40" fill="none" 
+                            stroke="#FFD700" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p>Loading circle animation</p>
+        </div>
+    </div>
+</body>
+</html>

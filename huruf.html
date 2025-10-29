@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4S Glowing Shield - Font Styles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)); }
+        }
+
+        .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ Choose Your Font Style</h1>
+    <p class="subtitle">Q4S Glowing Shield with different artistic fonts</p>
+
+    <div class="grid">
+        <!-- 1. Serif Classic -->
+        <div class="card">
+            <h3>1. Serif Classic</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad1)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="Georgia, serif" font-size="58" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Traditional elegant serif</p>
+        </div>
+
+        <!-- 2. Modern Sans -->
+        <div class="card">
+            <h3>2. Modern Sans</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad2)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Trebuchet MS', sans-serif" font-size="62" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Clean modern sans-serif</p>
+        </div>
+
+        <!-- 3. Brush Script -->
+        <div class="card">
+            <h3>3. Brush Script</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad3)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Brush Script MT', cursive" font-size="68" font-weight="normal" 
+                          fill="white" text-anchor="middle" font-style="italic">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Artistic brush strokes</p>
+        </div>
+
+        <!-- 4. Art Deco -->
+        <div class="card">
+            <h3>4. Art Deco Style</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad4)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Copperplate', fantasy" font-size="55" font-weight="bold" 
+                          fill="white" text-anchor="middle" letter-spacing="4">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Vintage art deco spacing</p>
+        </div>
+
+        <!-- 5. Bold Impact -->
+        <div class="card">
+            <h3>5. Bold Impact</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad5)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="Impact, fantasy" font-size="65" font-weight="normal" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Strong bold presence</p>
+        </div>
+
+        <!-- 6. Handwritten -->
+        <div class="card">
+            <h3>6. Handwritten</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad6)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Comic Sans MS', cursive" font-size="62" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Casual handwritten feel</p>
+        </div>
+
+        <!-- 7. Condensed Tech -->
+        <div class="card">
+            <h3>7. Condensed Tech</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad7)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Arial Narrow', sans-serif" font-size="70" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Sleek condensed style</p>
+        </div>
+
+        <!-- 8. Stencil Military -->
+        <div class="card">
+            <h3>8. Stencil Military</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad8)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Courier New', monospace" font-size="58" font-weight="bold" 
+                          fill="white" text-anchor="middle" letter-spacing="2">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Military stencil look</p>
+        </div>
+
+        <!-- 9. Elegant Thin -->
+        <div class="card">
+            <h3>9. Elegant Thin</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad9)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Times New Roman', serif" font-size="68" font-weight="300" 
+                          fill="white" text-anchor="middle" letter-spacing="3">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Sophisticated thin serif</p>
+        </div>
+
+        <!-- 10. Futuristic -->
+        <div class="card">
+            <h3>10. Futuristic</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad10" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad10)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Verdana', sans-serif" font-size="60" font-weight="bold" 
+                          fill="white" text-anchor="middle" letter-spacing="5">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Wide spaced futuristic</p>
+        </div>
+
+        <!-- 11. Rounded Friendly -->
+        <div class="card">
+            <h3>11. Rounded Friendly</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad11" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad11)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Tahoma', sans-serif" font-size="62" font-weight="bold" 
+                          fill="white" text-anchor="middle">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Soft rounded corners</p>
+        </div>
+
+        <!-- 12. Geometric -->
+        <div class="card">
+            <h3>12. Geometric</h3>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad12" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L170 50 L170 110 Q170 160 100 180 Q30 160 30 110 L30 50 Z" 
+                          fill="url(#grad12)" stroke="white" stroke-width="4"/>
+                    <text x="100" y="125" font-family="'Century Gothic', sans-serif" font-size="60" font-weight="bold" 
+                          fill="white" text-anchor="middle" letter-spacing="2">Q4S</text>
+                </svg>
+            </div>
+            <p class="description">Clean geometric shapes</p>
+        </div>
+    </div>
+</body>
+</html>
