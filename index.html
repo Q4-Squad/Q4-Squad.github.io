@@ -61,7 +61,21 @@
 
         <h1>Under Construction</h1>
         <p>We're working hard to bring you something amazing. :)</p>
-
+        <p><small>Design by <a href="https://qu-o.github.io><em style="font-style: italic;">Qu_O</em></a>. &copy; <text id="tanggal">1989</text></small></p>
     </div>
+    
+    <script>
+        window.onload = function() { document.body.classList.remove('is-preload'); }
+        window.ontouchmove = function() { return false; }
+        window.onorientationchange = function() { document.body.scrollTop = 0; }
+        
+            // Tanggal saiki
+            const d = new Date();
+            const month   = d.toLocaleString(["ban", "id"], {month:'long',timeZone: "UTC"}); // months from 1-12
+            const day     = d.toLocaleString(["ban", "id"], {weekday:'long',timeZone: "UTC"});
+            const tanggal = day + ", " + d.getUTCDate()  + " " + month + " " + d.getUTCFullYear();
+            document.getElementById("tanggal").innerHTML = tanggal;
+            //console.log(tanggal);
+    </script>
 </body>
 </html>
